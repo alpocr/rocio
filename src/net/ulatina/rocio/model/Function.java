@@ -1,8 +1,8 @@
-package model;
+package net.ulatina.rocio.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -22,9 +22,9 @@ public class Function implements Serializable {
 
 	private String path;
 
-	//bi-directional many-to-one association to App
+	//bi-directional many-to-one association to FunctionHasModule
 	@OneToMany(mappedBy="function")
-	private List<App> apps;
+	private Set<FunctionHasModule> functionHasModules;
 
 	public Function() {
 	}
@@ -53,26 +53,26 @@ public class Function implements Serializable {
 		this.path = path;
 	}
 
-	public List<App> getApps() {
-		return this.apps;
+	public Set<FunctionHasModule> getFunctionHasModules() {
+		return this.functionHasModules;
 	}
 
-	public void setApps(List<App> apps) {
-		this.apps = apps;
+	public void setFunctionHasModules(Set<FunctionHasModule> functionHasModules) {
+		this.functionHasModules = functionHasModules;
 	}
 
-	public App addApp(App app) {
-		getApps().add(app);
-		app.setFunction(this);
+	public FunctionHasModule addFunctionHasModule(FunctionHasModule functionHasModule) {
+		getFunctionHasModules().add(functionHasModule);
+		functionHasModule.setFunction(this);
 
-		return app;
+		return functionHasModule;
 	}
 
-	public App removeApp(App app) {
-		getApps().remove(app);
-		app.setFunction(null);
+	public FunctionHasModule removeFunctionHasModule(FunctionHasModule functionHasModule) {
+		getFunctionHasModules().remove(functionHasModule);
+		functionHasModule.setFunction(null);
 
-		return app;
+		return functionHasModule;
 	}
 
 }

@@ -1,8 +1,9 @@
-package model;
+package net.ulatina.rocio.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -36,9 +37,9 @@ public class User implements Serializable {
 
 	private String username;
 
-	//bi-directional many-to-one association to Profile
-	@ManyToOne
-	private Profile profile;
+	//bi-directional many-to-one association to UserHasProfile
+	@OneToMany(mappedBy="user")
+	private Set<UserHasProfile> userHasProfiles;
 
 	public User() {
 	}
@@ -115,12 +116,26 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public Profile getProfile() {
-		return this.profile;
+	public Set<UserHasProfile> getUserHasProfiles() {
+		return this.userHasProfiles;
 	}
 
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	public void setUserHasProfiles(Set<UserHasProfile> userHasProfiles) {
+		this.userHasProfiles = userHasProfiles;
+	}
+
+	public UserHasProfile addUserHasProfile(UserHasProfile userHasProfile) {
+		getUserHasProfiles().add(userHasProfile);
+		userHasProfile.setUser(this);
+
+		return userHasProfile;
+	}
+
+	public UserHasProfile removeUserHasProfile(UserHasProfile userHasProfile) {
+		getUserHasProfiles().remove(userHasProfile);
+		userHasProfile.setUser(null);
+
+		return userHasProfile;
 	}
 
 }

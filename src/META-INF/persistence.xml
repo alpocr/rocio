@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="rocio" transaction-type="RESOURCE_LOCAL">
-		<class>model.App</class>
-		<class>model.Function</class>
-		<class>model.Permission</class>
-		<class>model.Profile</class>
-		<class>model.User</class>
+		<class>net.ulatina.rocio.model.App</class>
+		<class>net.ulatina.rocio.model.Function</class>
+		<class>net.ulatina.rocio.model.FunctionHasModule</class>
+		<class>net.ulatina.rocio.model.FunctionHasModulePK</class>
+		<class>net.ulatina.rocio.model.Module</class>
+		<class>net.ulatina.rocio.model.ModuleHasApp</class>
+		<class>net.ulatina.rocio.model.ModuleHasAppPK</class>
+		<class>net.ulatina.rocio.model.Profile</class>
+		<class>net.ulatina.rocio.model.ProfileHasApp</class>
+		<class>net.ulatina.rocio.model.ProfileHasAppPK</class>
+		<class>net.ulatina.rocio.model.User</class>
+		<class>net.ulatina.rocio.model.UserHasProfile</class>
+		<class>net.ulatina.rocio.model.UserHasProfilePK</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/rociodb"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
