@@ -12,5 +12,6 @@
 			<attribute name="owner.project.facets" value="jpt.jpa"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringFramework"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

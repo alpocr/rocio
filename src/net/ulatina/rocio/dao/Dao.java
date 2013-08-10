@@ -24,6 +24,12 @@ public interface Dao {
 	public Boolean delete(Object obj);
 	
 	
+	/*
+	 * Este metodo será usado para borrar una lista de objetos
+	 */
+	public Boolean delete(List<Object> list);
+	
+	
 	/**
 	 * Método usado para actualizar un objeto.
 	 * 
